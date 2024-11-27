@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int vetor[5] = {5, 3, 8, 1, 4};
+    int temp;
+
+    // Bubble Sort para ordenar o vetor
+    for (int i = 0; i < 5 - 1; i++) {
+        for (int j = 0; j < 5 - i - 1; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+                temp = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = temp;
+            }
+        }
+    }
+
+    // Exibe o vetor ordenado
+    printf("Vetor ordenado: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
