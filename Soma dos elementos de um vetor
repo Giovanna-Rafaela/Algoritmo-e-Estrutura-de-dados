@@ -1,0 +1,18 @@
+//Soma dos elementos de um vetor
+
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int vetor[5] = {10, 20, 30, 40, 50}; // Define um vetor com 5 elementos
+    int soma = 0;
+
+    // Soma os elementos do vetor
+    for (int i = 0; i < 5; i++) {
+        soma += vetor[i];
+    }
+
+    // Exibe o resultado
+    printf("A soma dos elementos do vetor é: %d\n", soma);
+    return 0;
+}
