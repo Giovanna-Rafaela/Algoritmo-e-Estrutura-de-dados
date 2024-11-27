@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <string.h>
+
+// Função para verificar se todas as letras foram adivinhadas
+int checarGanhou(char palavra[], char letrasAdivinhadas[], int tamanhoPalavra) {
+    for (int i = 0; i < tamanhoPalavra; i++) {
+        int achou = 0;
+        for (int j = 0; letrasAdivinhadas[j] != '\0'; j++) {
+            if (palavra[i] == letrasAdivinhadas[j]) {
+                achou = 1;
+                break;
+            }
+        }
+        if (!achou) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// Função principal
+int main() {
+    char palavra[20] = "programacao";
+    char letrasAdivinhadas[20] = "";
+    int tentativas = 6;
+    char letra;
+    int tamanhoPalavra = strlen(palavra);
+
+    printf("Bem-vindo ao Jogo da Forca!\n");
+
+    while (tentativas > 0) {
+        printf("\nTentativas restantes: %d\n", tentativas);
+        printf("Palavra: ");
+        for (int i = 0; i < tamanhoPalavra; i++) {
+            if (strchr(letrasAdivinhadas, palavra[i])) {
+                printf("%c ", palavra[i]);
+            } else {
+                printf("_ ");
+            }
+        }
+        printf("\nDigite uma letra: ");
+        scanf(" %c", &letra);
+
+        if (strchr(letrasAdivinhadas, letra)) {
+            printf("Você já tentou essa letra.\n");
+            continue;
+        }
+
+        // Adiciona a letra ao conjunto de letras tentadas
+        strncat(letrasAdivinhadas, &letra, 1);
+
+        // Verifica se a letra está na palavra
+        if (strchr(palavra, letra) == NULL) {
+            tentativas--;
+            printf("Letra incorreta!\n");
+        }
+
+        // Checa se o jogador ganhou
+        if (checarGanhou(palavra, letrasAdivinhadas, tamanhoPalavra)) {
+            printf("\nVocê venceu! A palavra é: %s\n", palavra);
+            break;
+        }
+    }
+
+    if (tentativas == 0) {
+        printf("Você perdeu! A palavra era: %s\n", palavra);
+    }
+
+    return 0;
+}
