@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <ctype.h>
+
+// Função para contar as vogais e consoantes
+void contarVogaisConsoantes(char str[], int *vogais, int *consoantes) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = tolower(str[i]);
+        if (c >= 'a' && c <= 'z') { // Verifica se é uma letra
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                (*vogais)++;
+            } else {
+                (*consoantes)++;
+            }
+        }
+    }
+}
+
+// Função principal
+int main() {
+    char str[100];
+    int vogais = 0, consoantes = 0;
+
+    printf("Digite uma frase: ");
+    fgets(str, sizeof(str), stdin);
+
+    contarVogaisConsoantes(str, &vogais, &consoantes);
+
+    printf("A frase tem %d vogais e %d consoantes.\n", vogais, consoantes);
+
+    return 0;
+}
