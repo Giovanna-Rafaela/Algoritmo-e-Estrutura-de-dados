@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+// Função para verificar se um número é um quadrado perfeito
+int ehQuadradoPerfeito(int num) {
+    int raiz = sqrt(num);
+    return (raiz * raiz == num);
+}
+
+// Função principal
+int main() {
+    int num;
+
+    printf("Digite um número: ");
+    scanf("%d", &num);
+
+    if (ehQuadradoPerfeito(num)) {
+        printf("%d é um quadrado perfeito.\n", num);
+    } else {
+        printf("%d não é um quadrado perfeito.\n", num);
+    }
+
+    return 0;
+}
