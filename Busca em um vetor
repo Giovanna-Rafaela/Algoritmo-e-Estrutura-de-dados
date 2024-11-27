@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int vetor[6] = {5, 10, 15, 20, 25, 30}; // Vetor a ser pesquisado
+    int busca, encontrado = 0;
+
+    printf("Digite um número para buscar: ");
+    scanf("%d", &busca);
+
+    // Procura o número no vetor
+    for (int i = 0; i < 6; i++) {
+        if (vetor[i] == busca) {
+            printf("Número %d encontrado na posição %d.\n", busca, i);
+            encontrado = 1;
+            break; // Interrompe a busca ao encontrar
+        }
+    }
+
+    if (!encontrado) {
+        printf("Número %d não encontrado no vetor.\n", busca);
+    }
+
+    return 0;
+}
