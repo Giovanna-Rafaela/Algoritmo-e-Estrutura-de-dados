@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int vetor[8] = {1, -2, 3, 4, -5, 6, -7, 8};
+    int positivos = 0;
+
+    // Conta os números positivos no vetor
+    for (int i = 0; i < 8; i++) {
+        if (vetor[i] > 0) {
+            positivos++;
+        }
+    }
+
+    printf("O vetor possui %d números positivos.\n", positivos);
+    return 0;
+}
