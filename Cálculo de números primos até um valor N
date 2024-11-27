@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int n;
+    printf("Digite um número limite para encontrar primos: ");
+    scanf("%d", &n);
+
+    int primos[n + 1];
+    for (int i = 0; i <= n; i++) {
+        primos[i] = 1; // Assume que todos são primos
+    }
+    primos[0] = primos[1] = 0; // 0 e 1 não são primos
+
+    for (int i = 2; i * i <= n; i++) {
+        if (primos[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                primos[j] = 0; // Marca múltiplos como não primos
+            }
+        }
+    }
+
+    printf("Números primos até %d:\n", n);
+    for (int i = 2; i <= n; i++) {
+        if (primos[i]) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
