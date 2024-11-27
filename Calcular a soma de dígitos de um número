@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Função para calcular a soma dos dígitos de um número
+int somaDigitos(int num) {
+    int soma = 0;
+    while (num > 0) {
+        soma += num % 10; // Adiciona o último dígito
+        num /= 10; // Remove o último dígito
+    }
+    return soma;
+}
+
+// Função principal
+int main() {
+    int num;
+    
+    printf("Digite um número: ");
+    scanf("%d", &num);
+
+    printf("A soma dos dígitos de %d é: %d\n", num, somaDigitos(num));
+
+    return 0;
+}
