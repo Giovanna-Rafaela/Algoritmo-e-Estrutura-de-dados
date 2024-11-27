@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Função para calcular Fibonacci
+int fibonacci(int n) {
+    if (n == 0) {
+        return 0; // Primeiro número da sequência
+    } else if (n == 1) {
+        return 1; // Segundo número da sequência
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2); // Passo recursivo
+}
+
+// Função principal
+int main() {
+    int n;
+    printf("Digite a posição (n) da sequência de Fibonacci: ");
+    scanf("%d", &n);
+
+    int resultado = fibonacci(n); // Chamada da função
+    printf("O número na posição %d da sequência de Fibonacci é: %d\n", n, resultado);
+
+    return 0;
+}
