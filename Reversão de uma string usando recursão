@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+// Função recursiva para reverter a string
+void reverterString(char str[], int inicio, int fim) {
+    if (inicio >= fim) {
+        return;
+    }
+    // Troca os caracteres
+    char temp = str[inicio];
+    str[inicio] = str[fim];
+    str[fim] = temp;
+    
+    // Chama recursivamente
+    reverterString(str, inicio + 1, fim - 1);
+}
+
+// Função principal
+int main() {
+    char str[100];
+    
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = 0; // Remove o caractere de nova linha
+
+    reverterString(str, 0, strlen(str) - 1); // Chama a função recursiva
+    printf("String reversa: %s\n", str);
+
+    return 0;
+}
