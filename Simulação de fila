@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define TAMANHO 5
+
+int fila[TAMANHO];
+int frente = -1, tras = -1;
+
+// Função para enfileirar
+void enfileirar(int valor) {
+    if (tras == TAMANHO - 1) {
+        printf("Fila cheia!\n");
+    } else {
+        if (frente == -1) frente = 0;
+        fila[++tras] = valor;
+        printf("%d enfileirado.\n", valor);
+    }
+}
+
+// Função para desenfileirar
+void desenfileirar() {
+    if (frente == -1 || frente > tras) {
+        printf("Fila vazia!\n");
+    } else {
+        printf("%d desenfileirado.\n", fila[frente++]);
+    }
+}
+
+// Função principal
+int main() {
+    enfileirar(10);
+    enfileirar(20);
+    enfileirar(30);
+    desenfileirar();
+    desenfileirar();
+    desenfileirar();
+    desenfileirar();
+
+    return 0;
+}
