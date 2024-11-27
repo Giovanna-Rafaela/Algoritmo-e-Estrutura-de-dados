@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+// Função principal
+int main() {
+    int num, primo = 1;
+
+    printf("Digite um número para verificar se é primo: ");
+    scanf("%d", &num);
+
+    if (num < 2) {
+        primo = 0; // Números menores que 2 não são primos
+    } else {
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                primo = 0; // Número divisível por outro que não 1 ou ele mesmo
+                break;
+            }
+        }
+    }
+
+    if (primo) {
+        printf("%d é um número primo.\n", num);
+    } else {
+        printf("%d não é um número primo.\n", num);
+    }
+
+    return 0;
+}
