@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+// Função para ordenar um vetor de strings
+void ordenarStrings(char palavras[][20], int n) {
+    char temp[20];
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strcmp(palavras[i], palavras[j]) > 0) {
+                // Troca as palavras
+                strcpy(temp, palavras[i]);
+                strcpy(palavras[i], palavras[j]);
+                strcpy(palavras[j], temp);
+            }
+        }
+    }
+}
+
+// Função principal
+int main() {
+    char palavras[5][20];
+    
+    printf("Digite 5 palavras:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%s", palavras[i]);
+    }
+
+    ordenarStrings(palavras, 5);
+
+    printf("Palavras ordenadas em ordem alfabética:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%s\n", palavras[i]);
+    }
+
+    return 0;
+}
